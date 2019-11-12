@@ -1,0 +1,108 @@
+-
+  group: Client Error
+  list:
+    -
+      code: 400
+      text: Bad Request
+      title: 予期しないリクエストです
+      message: 要求されたリクエストを処理できません。
+    -
+      code: 401
+      text: Unauthorized
+      title: 認証が必要です
+      message: アクセスを続けるには、認証する必要があります。
+    -
+      code: 402
+      text: Payment Required
+      title: 支払いが必要です
+      message: アクセスを続けるには、支払いをする必要があります。
+    -
+      code: 403
+      text: Forbidden
+      title: 公開されていません
+      message: 指定されたファイルは現在公開されていません。
+    -
+      code: 404
+      text: Not Found
+      title: ファイルが見つかりません
+      message: 指定されたファイルは見つかりませんでした。
+    -
+      code: 405
+      text: Method Not Allowed
+      title: このリソースにはアクセスできません
+      message: 許可されていない HTTP リクエストメソッドです。
+    -
+      code: 406
+      text: Method Not Allowed
+      title: このリソースにはアクセスできません
+      message: 条件に合うコンテンツが見つかりません。
+    -
+      code: 407
+      text: Proxy Authentication Required
+      title: プロキシ認証が必要です
+      message: アクセスを続けるには、認証する必要があります。
+    -
+      code: 408
+      text: Request Timeout
+      title: リクエストがタイムアウトしました
+      message: 時間がかかりすぎたため、接続できませんでした。
+      description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
+
+-
+  group: Server Error
+  list:
+    -
+      code: 500
+      text: Internal Server Error
+      title: 処理中にエラーが発生しました
+      message: 恐れ入りますが、もう一度操作をして頂けますでしょうか。
+      description: しばらくたっても復旧しない場合はお知らせ頂けますと幸いです。
+    -
+      code: 501
+      text: Not Implemented
+      title: このリソースにはアクセスできません
+      message: 機能が実装されていません。
+    -
+      code: 502
+      text: Bad Gateway
+      title: サーバーが応答しません
+      message: サーバーが適切な応答を返しませんでした。サーバーが一時的にダウンしている可能性があります。
+      description: しばらくたっても復旧しない場合はお知らせ頂けますと幸いです。
+    -
+      code: 503
+      text: Service Unavailable
+      title: 現在、サービスは利用できません
+      message: 一時的な過負荷やメンテナンスのため、現在はアクセスすることができません。
+      description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
+    -
+      code: 504
+      text: Gateway Timeout
+      title: リクエストがタイムアウトしました
+      message: サーバーからの応答に時間がかかりすぎたため、接続できませんでした。
+      description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
+    -
+      code: 505
+      text: HTTP Version Not Supported
+      title: このリソースにはアクセスできません
+      message: サポートされていない HTTP バージョンです。
+    -
+      code: 506
+      text: Variant Also Negotiates
+      title: このリソースにはアクセスできません
+      message: サーバーの透過的コンテンツネゴシエーションに関する内部構成に問題があります。
+    -
+      code: 509
+      text: Bandwidth Limit Exceeded
+      title: 帯域幅制限をオーバーしています
+      message: サーバーに設定されている帯域幅（転送量）制限を超過したため、アクセスできません。
+    -
+      code: 510
+      text: Not Extended
+      title: このリソースにはアクセスできません
+      message: サーバーがリクエストを処理するために、リクエストをさらに拡張することが必要です。
+    -
+      code: 511
+      text: Network Authentication Required
+      rfc: 6585
+      title: ネットワークに対する認証が必要です
+      message: アクセスを続けるには、認証する必要があります。
