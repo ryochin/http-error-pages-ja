@@ -1,0 +1,8 @@
+-
+  group: Extra
+  list:
+    -
+      file: 'maintenance'
+      text: Maintenance
+      title: 本サイトはただいまメンテナンス中です
+      message: ご迷惑をおかけしておりますが、しばらくお待ちくださいませ。
