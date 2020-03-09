@@ -1,0 +1,9 @@
+version: "2.2"
+services:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "10080:10080"
+    environment:
+      TZ: Asia/Tokyo

@@ -73,14 +73,12 @@ vi template.html
 
 ### ローカルサーバ
 
-表示を確認する際に絶対パスを解釈してほしいのでサーバを起動する。
+表示を確認する際に絶対パスを解釈してほしいので、表示用ウェブサーバを起動する。
 
 ```sh
-curl -L https://cpanmin.us | perl - --sudo App::cpanminus
-cpanm Carton
-carton install
+docker-compose build
+docker-compose up
 
-carton exec -- plackup --port 10080 ./server.psgi
 open http://localhost:10080/
 ```
 
