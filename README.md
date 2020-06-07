@@ -3,15 +3,16 @@ HTTP サーバ用 汎用日本語 HTML エラーページ集
 
 [![CC0](http://img.shields.io/badge/license-CC0-blue.svg?style=flat)](LICENSE)
 
-> サーバのデフォルトページよりはマシな、日本語でそこそこ汎用に使えそうなページ集。
+> ウェブサーバのデフォルトページよりはマシな、**使いものになる**エラーページたち。
 
 ![screenshot](https://raw.githubusercontent.com/ryochin/http-error-pages-ja/master/screenshot.png)
 
-* シンプルなデザイン
-* 過不足なく、わかりやすいエラーメッセージ
+* どんなサービスにもマッチする、ミニマルなデザイン。
+* 過不足なく、わかりやすいメッセージ。
+* カスタマイザブル。
 
-設定
------
+設定 on nginx
+-------------
 
 `errors.conf` 等を作成して `include` する。
 
@@ -46,7 +47,7 @@ location ^~ /_errors/ {
     allow all;
 }
 
-location ~ /(4[01235][0-9]|5[01][0-9])\.html {
+location ~ /(40[0-9]|5[01][0-9])\.html {
     root /var/nginx/errors;
     allow all;
     internal;
@@ -57,12 +58,12 @@ location ~ /(4[01235][0-9]|5[01][0-9])\.html {
 include               /var/nginx/conf/errors.conf;
 ```
 
-開発
+カスタマイズ
 ----
 
-### ビルド
+### ビルドする
 
-HTML ファイル群を生成する。
+文言やレイアウトを編集し、HTML ファイル群を生成する。
 
 ```sh
 vi http_status_code.yml
@@ -71,12 +72,17 @@ vi template.html
 ./build.rb
 ```
 
-### ローカルサーバ
-
-表示を確認する際に絶対パスを解釈してほしいので、表示用ウェブサーバを起動する。
+デザインを編集する。
 
 ```sh
-docker-compose pull
+vi _errors/style.css
+```
+
+### 確認する
+
+表示用にローカルのウェブサーバを起動する。
+
+```sh
 docker-compose up
 
 open http://localhost:10080/
