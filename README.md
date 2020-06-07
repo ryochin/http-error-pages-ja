@@ -76,7 +76,7 @@ vi template.html
 表示を確認する際に絶対パスを解釈してほしいので、表示用ウェブサーバを起動する。
 
 ```sh
-docker-compose build
+docker-compose pull
 docker-compose up
 
 open http://localhost:10080/
