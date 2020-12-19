@@ -31,6 +31,8 @@ error_page 405 /405.html;
 error_page 406 /406.html;
 error_page 407 /407.html;
 error_page 408 /408.html;
+error_page 422 /422.html;
+error_page 451 /451.html;
 error_page 500 /500.html;
 error_page 501 /501.html;
 error_page 502 /502.html;
@@ -47,7 +49,7 @@ location ^~ /_errors/ {
     allow all;
 }
 
-location ~ /(40[0-9]|5[01][0-9])\.html {
+location ~ /(4[025][0-9]|5[01][0-9])\.html {
     root /var/nginx/errors;
     allow all;
     internal;
