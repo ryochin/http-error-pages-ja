@@ -38,7 +38,7 @@ error_page 503 /503.html;
 error_page 504 /504.html;
 error_page 505 /505.html;
 error_page 506 /506.html;
-error_page 508 /509.html;
+error_page 509 /509.html;
 error_page 510 /510.html;
 error_page 511 /511.html;
 
