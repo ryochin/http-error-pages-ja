@@ -3,10 +3,16 @@
 require 'yaml'
 require 'erb'
 
+subtitle_maker = lambda { |data|
+  data.slice('code', 'text').values.map(&:to_s).reject(&:empty?).join(' ')
+}
+
 # http error pages
 YAML.load_file('./http_status_code.yml').each do |group|
   group['list'].each do |data|
     file = "#{data['code']}.html"
+
+    subtitle = subtitle_maker.call(data)
 
     erb = ERB.new(File.read('./template.html'))
     File.write file, erb.result(binding).gsub(/\n+/o, "\n")
@@ -17,6 +23,8 @@ end
 YAML.load_file('./extra.yml').each do |group|
   group['list'].each do |data|
     file = "#{data['file']}.html"
+
+    subtitle = subtitle_maker.call(data)
 
     erb = ERB.new(File.read('./template.html'))
     File.write file, erb.result(binding).gsub(/\n+/o, "\n")
