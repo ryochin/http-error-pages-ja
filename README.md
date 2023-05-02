@@ -87,7 +87,7 @@ vi _errors/style.css
 ```sh
 docker-compose up
 
-open http://localhost:10080/
+open http://localhost:20080/
 ```
 
 リソース
