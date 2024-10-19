@@ -14,7 +14,7 @@ HTTP サーバ用 汎用日本語 HTML エラーページ集
 設定 on nginx
 -------------
 
-`errors.conf` 等を作成して `include` する。
+ファイル一式をクローンし、`errors.conf` を作成する。
 
 ```sh
 git clone --depth=1 https://github.com/ryochin/http-error-pages-ja /var/nginx/errors
@@ -57,8 +57,13 @@ location ~ /(4[0125][0-9]|5[01][0-9])\.html {
 }
 ```
 
+`nginx.conf` に追記する。
+
 ```nginx
-include               /var/nginx/conf/errors.conf;
+server {
+    ...
+    include               /var/nginx/conf/errors.conf;
+}
 ```
 
 カスタマイズ
@@ -86,7 +91,7 @@ vi _errors/style.css
 表示用にローカルのウェブサーバを起動する。
 
 ```sh
-docker-compose up
+docker compose up
 
 open http://localhost:20080/
 ```
