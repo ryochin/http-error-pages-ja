@@ -48,6 +48,11 @@
       message: 時間がかかりすぎたため、接続できませんでした。
       description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
     -
+      code: 413
+      text: Payload Too Large
+      title: ペイロードのサイズが大きすぎます
+      message: リクエストのペイロード（ボディ）のサイズ（容量）が大きすぎます。
+    -
       code: 422
       text: Unprocessable Entity
       title: 入力値の検証の失敗しました
