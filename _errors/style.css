@@ -47,8 +47,17 @@ h1 span.title {
   padding-left: 4px;
 }
 
-i.fa-warning {
+i.warning {
+  display: inline-block;
+  font-size: 24px;
+  width: 1em;
+  height: 1em;
   color: #cf7f0c;
+  background-color: currentColor;
+  mask-image: url("/_errors/warning.svg");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  vertical-align: text-bottom;
 }
 
 .info {
