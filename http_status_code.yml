@@ -33,9 +33,9 @@
       message: 許可されていない HTTP リクエストメソッドです。
     -
       code: 406
-      text: Method Not Allowed
-      title: このリソースにはアクセスできません
-      message: 条件に合うコンテンツが見つかりません。
+      text: Not Acceptable
+      title: リクエストは受理できません
+      message: 条件に合うコンテンツを提供できません。
     -
       code: 407
       text: Proxy Authentication Required
@@ -48,10 +48,56 @@
       message: 時間がかかりすぎたため、接続できませんでした。
       description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
     -
+      code: 409
+      text: Conflict
+      title: リクエストが競合しました
+      message: リクエストは現在のリソースと競合するので完了できません。
+    -
+      code: 410
+      text: Gone
+      title: 要求されたリソースは移動（または消滅）しました
+      message: 指定されたファイルは今後も提供できません。
+    -
+      code: 411
+      text: Length Required
+      title: リソースの長さが指定されていません
+      message: Content-Length ヘッダーフィールド等を指定してください。
+    -
+      code: 412
+      text: Precondition Failed
+      title: 前提条件が満たされていません
+      message: リクエストを完了するには、前提条件を満たす必要があります。
+    -
       code: 413
       text: Payload Too Large
       title: ペイロードのサイズが大きすぎます
       message: リクエストのペイロード（ボディ）のサイズ（容量）が大きすぎます。
+    -
+      code: 414
+      text: URI Too Long
+      title: URI が長すぎます
+      message: リクエストの URI が長すぎます。
+      description: 大きなファイルを GET メソッドで送信しているのかもしれません。
+    -
+      code: 415
+      text: Unsupported Media Type
+      title: サポートされていないメディアの種類です
+      message: 指定されたメディアの種類（MIME タイプ）はサポートされていません。
+    -
+      code: 416
+      text: Range Not Satisfiable
+      title: レンジが範囲外です
+      message: 実リソースのサイズを超えるデータが要求されました。
+    -
+      code: 417
+      text: Expectation Failed
+      title: Expect ヘッダーフィールドによる拡張が失敗しました
+      message: この拡張は返答できません。
+    -
+      code: 421
+      text: Misdirected Request
+      title: 誤ったリクエストです
+      message: 返答できません。
     -
       code: 422
       text: Unprocessable Entity
@@ -64,9 +110,55 @@
           * ActiveRecord::RecordInvalid
           * ActiveRecord::RecordNotSaved
     -
+      code: 423
+      text: Locked
+      rfc: 4918
+      title: ロックされています
+      message: リクエストされたリソースはロックされています。
+      note: |
+        WebDAV の拡張ステータスコード。
+    -
+      code: 424
+      text: Failed Dependency
+      rfc: 4918
+      title: 依存関係で失敗しました
+      message: 返答できません。
+      note: |
+        WebDAV の拡張ステータスコード。
+    -
+      code: 425
+      text: Too Early
+      title: 早期データは受け入れられません
+      message: 新規に TLS 接続を確立し、リクエストを再送してください。
+    -
+      code: 426
+      text: Upgrade Required
+      rfc: 7231
+      title: アップグレードしてください
+      message: TLS 接続をアップグレードしてください。
+    -
+      code: 428
+      text: Precondition Required
+      rfc: 6585
+      title: 事前条件が必要です
+      message: 条件を追加してリクエストしてください。
+    -
+      code: 429
+      text: Too Many Requests
+      rfc: 6585
+      title: リクエストが多すぎます
+      message: リクエストが多すぎるため、返答できません。
+    -
+      code: 431
+      text: Request Header Fields Too Large
+      rfc: 6585
+      title: リクエストヘッダーフィールドが大きすぎます
+      message: 返答できません。
+    -
       code: 451
       text: Unavailable For Legal Reasons
-      title: 違法なリソースが要求されました
+      rfc: 7725
+      title: 法的な理由により提供できません
       message: 法的な理由により、リクエストされたリソースは提供できません。
 
 -
@@ -109,8 +201,25 @@
     -
       code: 506
       text: Variant Also Negotiates
+      rfc: 2295
       title: このリソースにはアクセスできません
       message: サーバーの透過的コンテンツネゴシエーションに関する内部構成に問題があります。
+    -
+      code: 507
+      text: Insufficient Storage
+      rfc: 4918
+      title: 容量不足です
+      message: リクエストを処理するために必要なストレージの容量が足りません。
+      note: |
+        WebDAV の拡張ステータスコード。
+    -
+      code: 508
+      text: Loop Detected
+      rfc: 5842
+      title: ループを検出しました
+      message: ループを検出ため、アクセスできません。
+      note: |
+        WebDAV の拡張ステータスコード。
     -
       code: 509
       text: Bandwidth Limit Exceeded
@@ -119,8 +228,11 @@
     -
       code: 510
       text: Not Extended
+      rfc: 2774
       title: このリソースにはアクセスできません
       message: サーバーがリクエストを処理するために、リクエストをさらに拡張することが必要です。
+      note: |
+        廃止済み。
     -
       code: 511
       text: Network Authentication Required
