@@ -17,7 +17,7 @@ HTTP サーバ用 汎用日本語 HTML エラーページ集
 ファイル一式をクローンし、`errors.conf` を作成する。
 
 ```sh
-git clone --depth=1 https://github.com/ryochin/http-error-pages-ja /var/nginx/errors
+git clone --depth=1 https://github.com/ryochin/http-error-pages-ja.git /var/nginx/errors
 vi /var/nginx/conf/errors.conf
 ```
 
@@ -83,6 +83,8 @@ server {
     include               /var/nginx/conf/errors.conf;
 }
 ```
+
+`root` パスは適宜変更する。
 
 カスタマイズ
 ----
