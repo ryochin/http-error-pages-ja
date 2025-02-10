@@ -49,15 +49,16 @@ h1 span.title {
 
 i.warning {
   display: inline-block;
-  font-size: 24px;
+  font-size: 20pt;
   width: 1em;
   height: 1em;
-  color: #cf7f0c;
+  color: #e29f33;
   background-color: currentColor;
   mask-image: url("/_errors/warning.svg");
   mask-repeat: no-repeat;
   mask-size: contain;
   vertical-align: text-bottom;
+  padding-bottom: 0.5px;
 }
 
 .info {
