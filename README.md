@@ -5,7 +5,7 @@ HTTP サーバ用 汎用日本語 HTML エラーページ集
 
 > ウェブサーバのデフォルトページよりはマシな、**使いものになる**エラーページたち。
 
-![screenshot](https://raw.githubusercontent.com/ryochin/http-error-pages-ja/master/screenshot.png)
+![screenshot](screenshot@2x.png)
 
 * どんなサービスにもマッチする、ミニマルなデザイン。
 * 過不足なく、わかりやすいメッセージ。
