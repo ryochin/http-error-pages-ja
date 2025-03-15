@@ -68,7 +68,7 @@ location ^~ /_errors/ {
     allow all;
 }
 
-location ~ /(4[01235][0-9]|5[01][0-9])\.html {
+location ~ ^/(4[01235][0-9]|5[01][0-9])\.html$ {
     root /var/nginx/errors;
     allow all;
     internal;
