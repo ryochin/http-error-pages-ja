@@ -5,7 +5,7 @@
       code: 400
       text: Bad Request
       title: 予期しないリクエストです
-      message: 要求されたリクエストを処理できません。
+      message: リクエストの形式が正しくないため、処理できません。
     -
       code: 401
       text: Unauthorized
@@ -45,22 +45,22 @@
       code: 408
       text: Request Timeout
       title: リクエストがタイムアウトしました
-      message: 時間がかかりすぎたため、接続できませんでした。
-      description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
+      message: リクエストの送信に時間がかかりすぎたため、接続を終了しました。
+      description: しばらく時間をおいてもう一度お試しいただけますでしょうか。
     -
       code: 409
       text: Conflict
       title: リクエストが競合しました
-      message: リクエストは現在のリソースと競合するので完了できません。
+      message: リクエストは現在のリソースと競合するため、完了できません。
     -
       code: 410
       text: Gone
-      title: 要求されたリソースは移動（または消滅）しました
-      message: 指定されたファイルは今後も提供できません。
+      title: 要求されたリソースは削除されました
+      message: 指定されたファイルは削除されたため、今後提供される予定はありません。
     -
       code: 411
       text: Length Required
-      title: リソースの長さが指定されていません
+      title: リクエストの長さが指定されていません
       message: Content-Length ヘッダーフィールド等を指定してください。
     -
       code: 412
@@ -71,7 +71,7 @@
       code: 413
       text: Payload Too Large
       title: ペイロードのサイズが大きすぎます
-      message: リクエストのペイロード（ボディ）のサイズ（容量）が大きすぎます。
+      message: リクエストのペイロード（ボディ）のサイズが大きすぎます。
     -
       code: 414
       text: URI Too Long
@@ -86,23 +86,23 @@
     -
       code: 416
       text: Range Not Satisfiable
-      title: レンジが範囲外です
+      title: 指定された範囲が不正です
       message: 実リソースのサイズを超えるデータが要求されました。
     -
       code: 417
       text: Expectation Failed
       title: Expect ヘッダーフィールドによる拡張が失敗しました
-      message: この拡張は返答できません。
+      message: Expect ヘッダーフィールドで指定された要求に応えられません。
     -
       code: 421
       text: Misdirected Request
-      title: 誤ったリクエストです
-      message: 返答できません。
+      title: リクエストの送信先が誤っています
+      message: このサーバーはこのリクエストに応答できません。
     -
       code: 422
       text: Unprocessable Entity
-      title: 入力値の検証の失敗しました
-      message: 要求されたリソースが処理出来なかったか、あるいは認証情報が誤っているかもしれません。
+      title: 入力値の検証に失敗しました
+      message: リクエストの内容を処理できませんでした。入力内容に誤りがあるか、認証情報が無効になっている可能性があります。
       note: |
         Ruby on Rails では次の例外時に送出される。
           * ActionController::InvalidAuthenticityToken
@@ -121,8 +121,8 @@
       code: 424
       text: Failed Dependency
       rfc: 4918
-      title: 依存関係で失敗しました
-      message: 返答できません。
+      title: 依存するリクエストが失敗しました
+      message: 依存する別のリクエストが失敗したため、処理できません。
       note: |
         WebDAV の拡張ステータスコード。
     -
@@ -135,25 +135,25 @@
       text: Upgrade Required
       rfc: 7231
       title: アップグレードしてください
-      message: TLS 接続をアップグレードしてください。
+      message: 別のプロトコル（TLS など）にアップグレードしてからリクエストしてください。
     -
       code: 428
       text: Precondition Required
       rfc: 6585
-      title: 事前条件が必要です
-      message: 条件を追加してリクエストしてください。
+      title: 前提条件が必要です
+      message: If-Match などの条件を指定してリクエストしてください。
     -
       code: 429
       text: Too Many Requests
       rfc: 6585
       title: リクエストが多すぎます
-      message: リクエストが多すぎるため、返答できません。
+      message: リクエストが多すぎるため、応答できません。
     -
       code: 431
       text: Request Header Fields Too Large
       rfc: 6585
       title: リクエストヘッダーフィールドが大きすぎます
-      message: 返答できません。
+      message: リクエストヘッダーフィールドが大きすぎるため、処理できません。
     -
       code: 451
       text: Unavailable For Legal Reasons
@@ -168,8 +168,8 @@
       code: 500
       text: Internal Server Error
       title: 処理中にエラーが発生しました
-      message: 恐れ入りますが、もう一度操作をして頂けますでしょうか。
-      description: しばらくたっても復旧しない場合はお知らせ頂けますと幸いです。
+      message: 恐れ入りますが、もう一度操作していただけますでしょうか。
+      description: しばらくたっても復旧しない場合はお知らせいただけますと幸いです。
     -
       code: 501
       text: Not Implemented
@@ -180,19 +180,19 @@
       text: Bad Gateway
       title: サーバーが応答しません
       message: サーバーが適切な応答を返しませんでした。サーバーが一時的にダウンしている可能性があります。
-      description: しばらくたっても復旧しない場合はお知らせ頂けますと幸いです。
+      description: しばらくたっても復旧しない場合はお知らせいただけますと幸いです。
     -
       code: 503
       text: Service Unavailable
       title: 現在、サービスは利用できません
       message: 一時的な過負荷やメンテナンスのため、現在はアクセスすることができません。
-      description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
+      description: しばらく時間をおいてもう一度お試しいただけますでしょうか。
     -
       code: 504
       text: Gateway Timeout
       title: リクエストがタイムアウトしました
-      message: サーバーからの応答に時間がかかりすぎたため、接続できませんでした。
-      description: しばらく時間をおいてもう一度お試し頂けますでしょうか。
+      message: サーバーからの応答に時間がかかりすぎたため、応答を受け取れませんでした。
+      description: しばらく時間をおいてもう一度お試しいただけますでしょうか。
     -
       code: 505
       text: HTTP Version Not Supported
@@ -217,7 +217,7 @@
       text: Loop Detected
       rfc: 5842
       title: ループを検出しました
-      message: ループを検出ため、アクセスできません。
+      message: ループを検出したため、アクセスできません。
       note: |
         WebDAV の拡張ステータスコード。
     -
@@ -230,7 +230,7 @@
       text: Not Extended
       rfc: 2774
       title: このリソースにはアクセスできません
-      message: サーバーがリクエストを処理するために、リクエストをさらに拡張することが必要です。
+      message: リクエストを処理するには、さらなる拡張が必要です。
       note: |
         廃止済み。
     -
